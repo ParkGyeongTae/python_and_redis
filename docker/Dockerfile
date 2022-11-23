@@ -9,7 +9,8 @@ RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install software-properties-common -y && \
     add-apt-repository ppa:deadsnakes/ppa -y && \
     apt update && \
-    apt install python3-pip -y
+    apt install python3-pip -y && \
+    pip install --upgrade pip
 
 RUN ln -s /usr/bin/python3.8 /usr/bin/python
 
