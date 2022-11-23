@@ -11,6 +11,8 @@ RUN apt update && \
     apt update && \
     apt install python3-pip -y
 
+RUN ln -s /usr/bin/python3.8 /usr/bin/python
+
 WORKDIR /code
 
 # DEBIAN_FRONTEND=noninteractive
