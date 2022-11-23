@@ -4,8 +4,8 @@ services:
 
     py38:
         image: ${PYTHON_IMAGE_NAME}:${PYTHON_IMAGE_VERSION}
-        hostname: py38
-        container_name: py38
+        hostname: ${PYTHON_CONTAINER_NAME}
+        container_name: ${PYTHON_CONTAINER_NAME}
         stdin_open: true
         volumes:
             - type: bind
@@ -14,9 +14,9 @@ services:
               read_only: false
 
     redis:
-        image: redis:7.0.5
-        hostname: redis
-        container_name: redis
+        image: ${REDIS_IMAGE_NAME}:${REDIS_IMAGE_VERSION}
+        hostname: ${REDIS_CONTAINER_NAME}
+        container_name: ${REDIS_CONTAINER_NAME}
         ports:
             - 6379:6379
         volumes:
