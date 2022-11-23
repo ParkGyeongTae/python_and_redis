@@ -26,13 +26,3 @@ services:
               read_only: false
         environment:
             - REDIS_PORT=6379
-    # tty: true
-
-  # py38:
-  #   hostname: py38
-  #   container_name: py38
-  #   build:
-  #     context: .
-  #     dockerfile: ./Dockerfile
-  #   stdin_open: true
-  #   tty: true
