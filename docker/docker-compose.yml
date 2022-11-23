@@ -2,21 +2,21 @@ version: '2'
 
 services:
 
-  py38:
-    image: ${PYTHON_IMAGE_NAME}:${PYTHON_IMAGE_VERSION}
-    hostname: py38
-    container_name: py38
-    stdin_open: true
-    volumes:
-      - type: bind
-        source: ./code
-        target: /code
-        read_only: false
-      - type: bind
-        source: ./result
-        target: /result
-        read_only: false
+    py38:
+        image: ${PYTHON_IMAGE_NAME}:${PYTHON_IMAGE_VERSION}
+        hostname: py38
+        container_name: py38
+        stdin_open: true
+        volumes:
+            - type: bind
+              source: ./code
+              target: /code
+              read_only: false
 
+    redis:
+        image: redis:7.0.5
+        hostname: redis
+        container_name: redis
     # tty: true
 
   # py38:
