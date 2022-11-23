@@ -3,11 +3,15 @@ FROM ubuntu:20.04
 LABEL name='ParkGyeongTae'
 LABEL email='pgt0409@gmail.com'
 
+USER root
+
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt install software-properties-common -y && \
     add-apt-repository ppa:deadsnakes/ppa -y && \
     apt update && \
     apt install python3-pip -y
+
+WORKDIR /code
 
 # DEBIAN_FRONTEND=noninteractive
 #     apt install vim -y && \
