@@ -24,6 +24,6 @@ services:
             - 6379:6379
         volumes:
             - type: bind
-              source: ../data/redis
+              source: ../data/redis/standalone
               target: /data
               read_only: false
