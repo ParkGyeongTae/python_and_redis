@@ -38,5 +38,5 @@ if __name__ == '__main__':
     for count in range(1, 16):
         time.sleep(1)
         end_time = time.time()
-        print(f'- {count} -')
-        print('time : %.2f, value : %s, ttl : %s, exists : %s'%(round(end_time - start_time, 2), redis_client.get('key_1'), redis_client.ttl('key_1'), redis_client.exists('key_1')))
+        # print('%d, %.2f, %s, %s, %s'%(count, round(end_time - start_time, 2), redis_client.get('key_1'), redis_client.ttl('key_1'), redis_client.exists('key_1')))
+        # print(f'{count}, {round(end_time - start_time, 2)},', redis_client.get('key_1'), redis_client.ttl('key_1'), redis_client.exists('key_1'))
