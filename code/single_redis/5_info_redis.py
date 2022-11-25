@@ -1,6 +1,6 @@
 import os
 import redis
-import time
+import pprint
 
 class RedisSetting():
 
@@ -30,13 +30,12 @@ if __name__ == '__main__':
 
     redis_client = redis.StrictRedis(host = redis_host, port = redis_port, db = 0, password = redis_password)
 
-    redis_client.set('key_1', 'value_1')
-    redis_client.expire('key_1', 10)
-
-    start_time = time.time()
-
-    for count in range(1, 16):
-        time.sleep(1)
-        end_time = time.time()
-        # print('%d, %.2f, %s, %s, %s'%(count, round(end_time - start_time, 2), redis_client.get('key_1'), redis_client.ttl('key_1'), redis_client.exists('key_1')))
-        # print(f'{count}, {round(end_time - start_time, 2)},', redis_client.get('key_1'), redis_client.ttl('key_1'), redis_client.exists('key_1'))
+    redis_info = redis_client.info()
+    print(f"role : {redis_info['role']}")
+    print(f"redis_version : {redis_info['redis_version']}")
+    print(f"redis_mode : {redis_info['redis_mode']}")
+    print(f"connected_slaves : {redis_info['connected_slaves']}")
+    print(f"connected_clients : {redis_info['connected_clients']}")
+    print(f"total_system_memory_human : {redis_info['total_system_memory_human']}")
+    print(f"used_memory_human : {redis_info['used_memory_human']}")
+    print(f"used_memory_rss_human : {redis_info['used_memory_rss_human']}")
