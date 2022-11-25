@@ -14,7 +14,7 @@ for key, value in os.environ.items():
 redis_host = env_dict['redis_host']
 redis_port = env_dict['redis_port']
 
-redis_client = redis.StrictRedis(host = redis_host, port = redis_port, db = 0, password = None)
+redis_client = redis.StrictRedis(host = redis_host, port = redis_port, db = 0, password = 'password')
 
 redis_client.set('1', '2')
 redis_client.set('3', '4')
