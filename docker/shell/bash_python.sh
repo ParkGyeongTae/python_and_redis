@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source .env
+source ../.env
 
 docker exec -it ${PYTHON_CONTAINER_NAME} bash

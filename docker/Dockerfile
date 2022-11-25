@@ -14,7 +14,7 @@ RUN apt update && \
 
 RUN ln -s /usr/bin/python3.8 /usr/bin/python
 
-COPY ./requirements.txt /opt/requirements.txt
+COPY ./python_settings/requirements.txt /opt/requirements.txt
 
 RUN pip install -r /opt/requirements.txt && \
     pip freeze > /opt/requirements-result.txt
