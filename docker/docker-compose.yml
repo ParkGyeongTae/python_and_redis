@@ -27,6 +27,3 @@ services:
               source: ../data/redis
               target: /data
               read_only: false
-        environment:
-            - REDIS_PORT=6379
-            # - REDIS_PASSWORD=password
