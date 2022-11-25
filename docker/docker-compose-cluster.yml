@@ -13,17 +13,59 @@ services:
               target: /code
               read_only: false
 
-    redis:
+    redis_1:
         image: ${REDIS_IMAGE_NAME}:${REDIS_IMAGE_VERSION}
-        hostname: ${REDIS_CONTAINER_NAME}
-        container_name: ${REDIS_CONTAINER_NAME}
-        command: /bin/sh -c "redis-server --requirepass $$REDIS_PASSWORD"
+        hostname: redis_1
+        container_name: redis_1
+        command: redis-server /etc/redis.conf
         env_file:
             - ./redis_settings/redis.env
-        ports:
-            - 6379:6379
         volumes:
             - type: bind
-              source: ../data/redis/standalone
+              source: ./redis_settings/redis_1.conf
+              target: /etc/redis.conf
+              read_only: false
+            - type: bind
+              source: ../data/redis/cluster/redis_1
               target: /data
               read_only: false
+        ports:
+            - 7001:7001
+            - 17001:17001
+
+
+    redis_2:
+        image: ${REDIS_IMAGE_NAME}:${REDIS_IMAGE_VERSION}
+        hostname: redis_2
+        container_name: redis_2
+        command: redis-server /etc/redis.conf
+        volumes:
+            - type: bind
+              source: ./redis_settings/redis_2.conf
+              target: /etc/redis.conf
+              read_only: false
+            - type: bind
+              source: ../data/redis/cluster/redis_2
+              target: /data
+              read_only: false
+        ports:
+            - 7002:7002
+            - 17002:17002
+
+    redis_3:
+        image: ${REDIS_IMAGE_NAME}:${REDIS_IMAGE_VERSION}
+        hostname: redis_3
+        container_name: redis_3
+        command: redis-server /etc/redis.conf
+        volumes:
+            - type: bind
+              source: ./redis_settings/redis_3.conf
+              target: /etc/redis.conf
+              read_only: false
+            - type: bind
+              source: ../data/redis/cluster/redis_3
+              target: /data
+              read_only: false
+        ports:
+            - 7003:7003
+            - 17003:17003
