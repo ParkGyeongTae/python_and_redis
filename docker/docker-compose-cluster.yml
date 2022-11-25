@@ -1,3 +1,6 @@
+# redis-cli --cluster create redis_1:7001 redis_2:7002 redis_3:7003
+# redis-cli -a password --cluster create redis_1:6379 redis_2:6379 redis_3:6379
+
 version: '2'
 
 services:
@@ -26,13 +29,14 @@ services:
               target: /etc/redis.conf
               read_only: false
             - type: bind
-              source: ../data/redis/cluster/redis_1
-              target: /data
+              source: ../data/redis/cluster/redis_1/dump.rdb
+              target: /data/dump.rdb
               read_only: false
         ports:
-            - 7001:7001
-            - 17001:17001
-
+            - 7001:6379
+        #     - 17001:17001
+        # environment:
+        #     - REDIS_PORT=7001
 
     redis_2:
         image: ${REDIS_IMAGE_NAME}:${REDIS_IMAGE_VERSION}
@@ -45,12 +49,14 @@ services:
               target: /etc/redis.conf
               read_only: false
             - type: bind
-              source: ../data/redis/cluster/redis_2
-              target: /data
+              source: ../data/redis/cluster/redis_2/dump.rdb
+              target: /data/dump.rdb
               read_only: false
         ports:
-            - 7002:7002
-            - 17002:17002
+            - 7002:6379
+        #     - 17002:17002
+        # environment:
+        #     - REDIS_PORT=7002
 
     redis_3:
         image: ${REDIS_IMAGE_NAME}:${REDIS_IMAGE_VERSION}
@@ -63,9 +69,11 @@ services:
               target: /etc/redis.conf
               read_only: false
             - type: bind
-              source: ../data/redis/cluster/redis_3
-              target: /data
+              source: ../data/redis/cluster/redis_3/dump.rdb
+              target: /data/dump.rdb
               read_only: false
         ports:
-            - 7003:7003
-            - 17003:17003
+            - 7003:6379
+        #     - 17003:17003
+        # environment:
+        #     - REDIS_PORT=7003
