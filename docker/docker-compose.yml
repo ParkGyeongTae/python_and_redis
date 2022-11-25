@@ -26,3 +26,4 @@ services:
               read_only: false
         environment:
             - REDIS_PORT=6379
+            # - REDIS_PASSWORD=password
