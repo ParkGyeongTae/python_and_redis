@@ -17,9 +17,9 @@ services:
         image: ${REDIS_IMAGE_NAME}:${REDIS_IMAGE_VERSION}
         hostname: ${REDIS_CONTAINER_NAME}
         container_name: ${REDIS_CONTAINER_NAME}
-        command: /bin/sh -c "redis-server --requirepass ${REDIS_PASSWORD}"
-        # env_file:
-        #     - .env
+        command: /bin/sh -c "redis-server --requirepass $$REDIS_PASSWORD"
+        env_file:
+            - redis.env
         ports:
             - 6379:6379
         volumes:
