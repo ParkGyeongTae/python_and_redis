@@ -35,12 +35,6 @@ services:
               read_only: false
         ports:
             - 7001:6379
-        # depends_on:
-        #     - redis_2
-        #     - redis_3
-        #     - 17001:17001
-        # environment:
-        #     - REDIS_PORT=7001
 
     redis_2:
         image: ${REDIS_IMAGE_NAME}:${REDIS_IMAGE_VERSION}
@@ -58,9 +52,6 @@ services:
               read_only: false
         ports:
             - 7002:6379
-        #     - 17002:17002
-        # environment:
-        #     - REDIS_PORT=7002
 
     redis_3:
         image: ${REDIS_IMAGE_NAME}:${REDIS_IMAGE_VERSION}
@@ -78,6 +69,3 @@ services:
               read_only: false
         ports:
             - 7003:6379
-        #     - 17003:17003
-        # environment:
-        #     - REDIS_PORT=7003
