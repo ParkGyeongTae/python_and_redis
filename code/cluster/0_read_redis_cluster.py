@@ -40,6 +40,6 @@ if __name__ == '__main__':
         except:
             print('Do not connected', redis_host)
 
-    redis_client.set(2, 2)
+    redis_client.set(2, 3)
     redis_client.expire(2, 5)
     print(redis_client.get(2))
