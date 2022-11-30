@@ -1,5 +1,4 @@
-# redis-cli --cluster create redis_1:7001 redis_2:7002 redis_3:7003
-# redis-cli -a password --cluster create redis_1:6379 redis_2:6379 redis_3:6379
+# docker-compose -f docker-compose-cluster-1 up -d 이후 아래 명령어를 입력해줘야 한다!!!!!!
 # docker exec -it redis_1 redis-cli -a password --cluster create redis_1:6379 redis_2:6379 redis_3:6379
 
 version: '2'
